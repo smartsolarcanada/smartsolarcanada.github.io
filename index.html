@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Center Demand Is Landing on Alberta's Grid — Smart Solar</title>
+<meta name="description" content="New data center demand is landing on Alberta's grid. Some homeowners are locking in their own power ahead of it. Free assessment, no obligation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dusk:#16212B;
+    --gold:#E0973C;
+    --paper:#F7F3EC;
+    --brick:#A6472B;
+    --ink:#1B2226;
+    --slate:#5C6670;
+    --line:#E4DDD0;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.15;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header{
+    background:var(--dusk);
+    color:var(--white);
+    padding:18px 0;
+  }
+  header .wrap{display:flex; align-items:center; justify-content:space-between;}
+  .logo{font-family:'Fraunces', serif; font-size:1.3rem; font-weight:600;}
+  .logo span{color:var(--gold);}
+  .header-note{font-size:0.9rem; color:#C9CFD4;}
+  .header-note strong{color:var(--white);}
+
+  /* Hero */
+  .hero{
+    background:var(--paper);
+    padding:64px 0 72px;
+  }
+  .hero .grid{
+    display:grid;
+    grid-template-columns:1.05fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:2.4rem;
+    max-width:15ch;
+  }
+  .hero p.lede{
+    margin-top:20px;
+    font-size:1.15rem;
+    color:var(--slate);
+    max-width:44ch;
+  }
+  .trust-list{
+    margin-top:32px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .trust-item{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:0.98rem;
+  }
+  .trust-dot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--gold);
+    margin-top:8px;
+    flex-shrink:0;
+  }
+  .hero-photo{
+    position:relative;
+    border-radius:6px;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    background:linear-gradient(160deg, #E8B979 0%, #E0973C 35%, #A6472B 75%, #4A2E28 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:rgba(255,255,255,0.85);
+    text-align:center;
+    padding:24px;
+    font-size:0.95rem;
+  }
+  .hero-photo .note{
+    background:rgba(22,33,43,0.55);
+    padding:14px 18px;
+    border-radius:4px;
+    max-width:280px;
+  }
+  /* To use your real photo, replace .hero-photo background above and put:
+     <img src="your-house-photo.jpg" alt="Solar-paneled home at golden hour"> inside it,
+     removing the placeholder text block. */
+
+  .cta-btn{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--dusk);
+    font-weight:600;
+    font-size:1rem;
+    padding:14px 28px;
+    border-radius:4px;
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+    transition:background 0.15s ease;
+  }
+  .cta-btn:hover{background:#CB8530;}
+  .cta-btn:disabled{background:#D8D2C4; color:#8A8478; cursor:not-allowed;}
+
+  .mini-cta{margin-top:32px;}
+  .mini-cta .cta-btn{width:100%; text-align:center;}
+  @media(min-width:600px){ .mini-cta .cta-btn{width:auto;} }
+
+  /* Form section */
+  .form-section{
+    padding:72px 0;
+    background:var(--white);
+  }
+  .form-heading{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 40px;
+  }
+  .form-heading h2{font-size:2rem;}
+  .form-heading p{margin-top:12px; color:var(--slate); font-size:1.05rem;}
+
+  .form-card{
+    max-width:600px;
+    margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:40px;
+  }
+  .field-group{margin-bottom:22px;}
+  .field-group:last-child{margin-bottom:0;}
+  label{
+    display:block;
+    font-weight:600;
+    font-size:0.95rem;
+    margin-bottom:8px;
+  }
+  input[type="text"], input[type="email"], input[type="tel"], select{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid var(--line);
+    border-radius:4px;
+    font-family:'Inter', sans-serif;
+    font-size:1rem;
+    background:var(--white);
+    color:var(--ink);
+  }
+  input:focus, select:focus{
+    outline:2px solid var(--gold);
+    outline-offset:1px;
+  }
+  .radio-row{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .radio-option{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:4px;
+    background:var(--white);
+    cursor:pointer;
+  }
+  .radio-option:has(input:checked){
+    border-color:var(--gold);
+    background:#FDF6EB;
+  }
+  .radio-option input{margin:0;}
+  .form-divider{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:28px 0;
+  }
+  .form-submit{width:100%; margin-top:8px;}
+  .form-fineprint{
+    font-size:0.82rem;
+    color:var(--slate);
+    margin-top:14px;
+    text-align:center;
+  }
+  .form-status{
+    margin-top:16px;
+    font-size:0.95rem;
+    text-align:center;
+    display:none;
+  }
+  .form-status.success{color:#2E6B3E; display:block;}
+  .form-status.error{color:var(--brick); display:block;}
+
+  /* How it works */
+  .how{
+    padding:72px 0;
+    background:var(--dusk);
+    color:var(--white);
+  }
+  .how h2{color:var(--white); font-size:1.9rem; margin-bottom:44px; max-width:20ch;}
+  .how-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:32px;
+  }
+  .how-step{border-top:2px solid var(--gold); padding-top:18px;}
+  .how-num{font-family:'Fraunces', serif; font-size:1.4rem; color:var(--gold); margin-bottom:10px;}
+  .how-step h3{color:var(--white); font-size:1.15rem; margin-bottom:8px;}
+  .how-step p{color:#C9CFD4; font-size:0.95rem;}
+
+  /* Local trust */
+  .local{
+    padding:64px 0;
+    background:var(--paper);
+  }
+  .local .grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .local h2{font-size:1.8rem; max-width:16ch;}
+  .local p{margin-top:16px; color:var(--slate); max-width:46ch;}
+  .city-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:24px;
+  }
+  .city-pill{
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:8px 16px;
+    border-radius:20px;
+    font-size:0.9rem;
+  }
+
+  footer{
+    background:var(--dusk);
+    color:#8A93A0;
+    padding:32px 0;
+    font-size:0.85rem;
+  }
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+
+  @media(max-width:860px){
+    .hero .grid, .local .grid{grid-template-columns:1fr;}
+    .hero-photo{order:-1; aspect-ratio:16/10;}
+    .how-grid{grid-template-columns:1fr; gap:36px;}
+    .hero h1{font-size:2.1rem;}
+    .form-card{padding:28px 22px;}
+  }
+  @media(max-width:520px){
+    header .wrap{flex-direction:column; align-items:flex-start; gap:6px;}
+    .header-note{font-size:0.82rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">Smart<span>Solar</span></div>
+    <div class="header-note">Serving <strong>Calgary, Edmonton &amp; Red Deer</strong></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <h1>New data center demand is landing on Alberta's grid</h1>
+      <p class="lede">Some homeowners are locking in their own power ahead of it — before the grid gets more crowded.</p>
+
+      <div class="trust-list">
+        <div class="trust-item"><span class="trust-dot"></span> Free assessment, no pressure, no obligation</div>
+        <div class="trust-item"><span class="trust-dot"></span> Takes about 2 minutes to see your options</div>
+        <div class="trust-item"><span class="trust-dot"></span> Local specialists, not a call center</div>
+      </div>
+
+      <div class="mini-cta">
+        <a href="#assessment-form" class="cta-btn">See my options</a>
+      </div>
+      <p style="margin-top:14px; font-size:0.8rem; color:var(--slate);">Source: AESO, Update on Data Centres</p>
+    </div>
+
+    <div class="hero-photo" style="background:none; padding:0;">
+      <img src="hero-graphic.jpg" alt="Grid demand visualization — Alberta homeowners generating their own power ahead of rising data center load" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="assessment-form">
+  <div class="wrap">
+    <div class="form-heading">
+      <h2>Get your free assessment</h2>
+      <p>Answer a few quick questions and we'll follow up with your numbers.</p>
+    </div>
+
+    <form class="form-card" id="leadForm" novalidate>
+
+      <div class="field-group">
+        <label>Do you own your home?</label>
+        <div class="radio-row">
+          <label class="radio-option"><input type="radio" name="owns_home" value="Yes" required> Yes</label>
+          <label class="radio-option"><input type="radio" name="owns_home" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>How much shade does your roof get?</label>
+        <div class="radio-row">
+          <label class="radio-option"><input type="radio" name="roof_shade" value="No shade" required> No shade</label>
+          <label class="radio-option"><input type="radio" name="roof_shade" value="Some shade"> Some shade</label>
+          <label class="radio-option"><input type="radio" name="roof_shade" value="Mostly shaded"> Mostly shaded</label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>What is your average monthly power bill?</label>
+        <div class="radio-row">
+          <label class="radio-option"><input type="radio" name="monthly_bill" value="Under $100" required> Under $100</label>
+          <label class="radio-option"><input type="radio" name="monthly_bill" value="$100-$200"> $100-$200</label>
+          <label class="radio-option"><input type="radio" name="monthly_bill" value="$200-$300"> $200-$300</label>
+          <label class="radio-option"><input type="radio" name="monthly_bill" value="$300+"> $300+</label>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="provider">Who's your electricity provider?</label>
+        <input type="text" id="provider" name="electricity_provider" placeholder="e.g. Enmax, Epcor, Fortis" required>
+      </div>
+
+      <hr class="form-divider">
+
+      <div class="field-group">
+        <label for="full_name">Full name</label>
+        <input type="text" id="full_name" name="full_name" required>
+      </div>
+
+      <div class="field-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="field-group">
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <div class="field-group">
+        <label for="postal_code">Postal code</label>
+        <input type="text" id="postal_code" name="postal_code" placeholder="T2P 1J9" required>
+      </div>
+
+      <button type="submit" class="cta-btn form-submit" id="submitBtn">Get my free assessment</button>
+      <p class="form-fineprint">By submitting, you're requesting and inviting a Smart Solar representative to contact you — including by phone, email, or an in-home visit — about solar panel installation and Solar Club membership.</p>
+      <p class="form-status" id="formStatus"></p>
+    </form>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <h2>What happens after you submit</h2>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <h3>We review your answers</h3>
+        <p>A local specialist looks at your roof, provider, and bill size — no generic quote before that.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <h3>You get a call, not a script</h3>
+        <p>Someone reaches out to walk through your actual numbers, at a time that works for you.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <h3>You decide, no pressure</h3>
+        <p>If it makes sense, we go further. If it doesn't, you'll know why — no obligation either way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="local">
+  <div class="wrap grid">
+    <div>
+      <h2>Built for Alberta homes specifically</h2>
+      <p>Every assessment accounts for your actual roof, your actual provider, and your actual bill — not a generic national estimate.</p>
+      <div class="city-list">
+        <span class="city-pill">Calgary</span>
+        <span class="city-pill">Edmonton</span>
+        <span class="city-pill">Red Deer</span>
+        <span class="city-pill">Lethbridge</span>
+        <span class="city-pill">Grande Prairie</span>
+      </div>
+    </div>
+    <div>
+      <a href="#assessment-form" class="cta-btn">See my options</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Smart Solar</span>
+    <span>Free assessment, no obligation. Serving homeowners across Alberta.</span>
+  </div>
+</footer>
+
+<script>
+  // ── CONFIGURE THIS ──────────────────────────────────────────────
+  // Create a "Catch Hook" trigger in Zapier, paste that webhook URL here.
+  // Wire the Zap's next step to write into the same Google Sheet / Leadspedia
+  // pipeline already used for your Facebook Instant Form leads.
+  const ZAPIER_WEBHOOK_URL = "PASTE_YOUR_ZAPIER_CATCH_HOOK_URL_HERE";
+  // ────────────────────────────────────────────────────────────────
+
+  const form = document.getElementById('leadForm');
+  const statusEl = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    statusEl.className = 'form-status';
+    statusEl.textContent = '';
+
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.source = 'Landing Page';
+    data.submitted_at = new Date().toISOString();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+
+    try{
+      if(ZAPIER_WEBHOOK_URL.startsWith('PASTE_')){
+        throw new Error('CONFIG');
+      }
+      const res = await fetch(ZAPIER_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+      if(!res.ok) throw new Error('BAD_RESPONSE');
+
+      form.style.display = 'none';
+      statusEl.className = 'form-status success';
+      statusEl.textContent = "Thanks — you're all set. A local specialist will be in touch soon.";
+    }catch(err){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Get my free assessment';
+      statusEl.className = 'form-status error';
+      if(err.message === 'CONFIG'){
+        statusEl.textContent = 'Form isn\'t connected yet — set ZAPIER_WEBHOOK_URL in the page code.';
+      }else{
+        statusEl.textContent = 'Something went wrong submitting this — please try again in a moment.';
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
